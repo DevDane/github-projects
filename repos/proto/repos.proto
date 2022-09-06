@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "./proto";
+
+service ReposService {
+  rpc GetRepos (RepoRequest) returns (RepoResponse);
+}
+
+message RepoRequest {
+  optional int64 limit = 1;
+}
+
+message Repo {
+  int64 id = 1;
+  string node_id = 2;
+  string name = 3;
+  string full_name = 4;
+  string description = 5;
+  string html_url = 6;
+  string url = 7;
+  int64 stargazers_count = 8;
+  int64 watchers_count = 9;
+  string visibility = 10;
+  repeated string language = 11;
+  string image_url = 12;
+}
+
+message RepoResponse {
+  repeated Repo repos = 1;
+}

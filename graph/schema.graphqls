@@ -1,0 +1,22 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Repo {
+  id: Int!
+  nodeID: String!
+  name: String!
+  description: String!
+  fullName: String!
+  htmlUrl: String!
+  url: String!
+  stargazersCount: Int!
+  watchersCount: Int!
+  visibility: String!
+  imageUrl: String!
+  languages: [String!]!
+}
+
+type Query {
+  repos(limit: Int): [Repo!]!
+}
