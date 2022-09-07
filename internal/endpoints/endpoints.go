@@ -34,11 +34,8 @@ type File struct {
 	Content     string `json:"content"`
 }
 
-func GetRepos(limit *int) []Repo {
+func GetRepos() []Repo {
 	url := "https://api.github.com/user/repos?type=owner"
-	if limit != nil {
-		url = fmt.Sprintf("%s&per_page=%d", url, *limit)
-	}
 	r, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		fmt.Println("Error: ", err.Error())
