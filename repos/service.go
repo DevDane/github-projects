@@ -104,7 +104,7 @@ func (svc *service) GetRepos(ctx context.Context, req *pb.RepoRequest) (*pb.Repo
 			os.Exit(1)
 		}
 
-		rdb.Set(ctx, "repos", string(b), time.Hour*24*7)
+		rdb.Set(ctx, "repos", string(b), 20*time.Second)
 
 		if limit != nil && *limit > 0 {
 			return &pb.RepoResponse{
